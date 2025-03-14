@@ -29,7 +29,7 @@ void posicionarNavioHorizontal (int tabuleiro[TAMANHO][TAMANHO], int linha, int 
         return;
     }
     for(int i = 0; i < tamanho; i++){
-        tabuleiro[linha][coluna + i] = 3;
+        tabuleiro[linha][coluna + i] = 3; // Tamanho do navio
     }
 }
 
@@ -76,7 +76,7 @@ void PosicionaCone(int tabuleiro[TAMANHO] [TAMANHO], int linha, int coluna, int 
  // 
     
 for(int i = 0; i < altura; i++){
-    int inicio = coluna - i;
+    int inicio = coluna - i; 
     int base = 2 * i + 1;
 
 
@@ -101,7 +101,7 @@ for(int j = 0; j < base ; j++){
     }
 
     for(int i = -tamanho; i <= tamanho; i++){
-        tabuleiro[linha][coluna + i] = 1;
+        tabuleiro[linha][coluna + i] = 1; // Áreas atingidas
         tabuleiro[linha + i][coluna] = 1;
          }
 
@@ -151,28 +151,28 @@ for (int i = 0; i < altura; i++) {
    }
 int main(){
 
-int tabuleiro[TAMANHO] [TAMANHO] = {0};
+int tabuleiro[TAMANHO] [TAMANHO] = {0}; // Represta a água
 int tabuleiro_diagonal[TAMANHO] [TAMANHO] = {0};
 int tabuleiro_cone[TAMANHO] [TAMANHO] = {0};
 int tabuleiro_cruz[TAMANHO] [TAMANHO] = {0};
 int tabuleiro_octaedro[TAMANHO] [TAMANHO] = {0};
 
 printf("**Jogo De Batalha Naval**\n");
-posicionarNavioHorizontal(tabuleiro, 2, 4, 3);
-posicionarNavioVertical(tabuleiro, 4, 4, 3);
-PosicionarNavioDiagonalPrincipal(tabuleiro_diagonal, 0, 0, 3);
-PosicionarNavioDiagonalSecundaria(tabuleiro_diagonal,2, 7, 3);
-PosicionaCruz(tabuleiro_cruz, 3, 3, 3);
+posicionarNavioHorizontal(tabuleiro, 2, 4, 3); // Posição inicial e o tamanho do navio
+posicionarNavioVertical(tabuleiro, 4, 4, 3);   // Posição inicial e o tamanho do navio
+PosicionarNavioDiagonalPrincipal(tabuleiro_diagonal, 0, 0, 3); // Posição inicial e o tamanho do navio
+PosicionarNavioDiagonalSecundaria(tabuleiro_diagonal,2, 7, 3); // Posição inicial e o tamanho do navio
+PosicionaCruz(tabuleiro_cruz, 3, 3, 1);
 
-PosicionaCone(tabuleiro_cone, 5, 2, 3);
+PosicionaCone(tabuleiro_cone, 2, 2, 3);
 
-posicionaOctaedro(tabuleiro_octaedro, 5, 5, 3);
+posicionaOctaedro(tabuleiro_octaedro, 3, 5, 3);
 
-imprimirTabuleiro(tabuleiro, "Tabuleiro principal");
+imprimirTabuleiro(tabuleiro, "Tabuleiro horizontal e vertical");
 imprimirTabuleiro(tabuleiro_diagonal, "Tabuleiro Diagonais");
-imprimirTabuleiro(tabuleiro_cone, "Posição Cone");
-imprimirTabuleiro(tabuleiro_cruz, "Posição Cruz");
-imprimirTabuleiro(tabuleiro_octaedro, "Posição Octaedro");
+imprimirTabuleiro(tabuleiro_cone, "Área atingida");
+imprimirTabuleiro(tabuleiro_cruz, "Área atingida");
+imprimirTabuleiro(tabuleiro_octaedro, "Área atingida");
 
 
 
