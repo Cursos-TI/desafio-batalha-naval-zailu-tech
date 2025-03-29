@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio.h>
+
 
 #define TAMANHO 10 // Tamanho do tabuleiro
  
